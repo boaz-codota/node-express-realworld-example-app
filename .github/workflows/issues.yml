@@ -1,0 +1,13 @@
+name: 'Issues'
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  predict-files:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: boaz-codota/predict-files-to-change
+        with:
+          github-token: '${{ secrets.GITHUB_TOKEN }}'
